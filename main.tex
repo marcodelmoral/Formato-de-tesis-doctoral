@@ -1,0 +1,162 @@
+%
+\documentclass[12pt]{report}
+\usepackage{fontspec}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish,mexico]{babel}
+\usepackage{csquotes}
+\usepackage[pagestyles]{titlesec}
+\usepackage{titletoc}
+\usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{float}
+\usepackage[linktocpage=true]{hyperref}
+\usepackage[style=apa]{biblatex}
+\usepackage{booktabs}
+\usepackage[letterpaper,left=3.0cm,right=3.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+
+% Paquetes de prueba
+\usepackage{lipsum}
+
+% Configuracion general
+
+% Espacio entre lineas
+\linespread{1.5}
+% Fuente
+\setmainfont{XITS}
+% Espacio de parrafo
+\setlength{\parskip}{8pt}
+% Identacion general
+\setlength{\parindent}{0pt}
+
+% Configuracion de titulos
+\titleformat{\chapter}{\centering\fontsize{16pt}{1pt}\normalfont}{\chaptername\ \thechapter}{0pt}{}%
+\titleformat{\section}{\raggedright\fontsize{14pt}{1pt}\bfseries}{\chaptername\ \thechapter}{0pt}{}%
+\titlespacing{\chapter}{0pt}{-20pt}{8pt}%
+% Configuracion de listas de contenido
+% Capitulo
+\titlecontents{chapter}
+  [0em]
+  {}
+  {\contentslabel[\thecontentslabel]{0em}}
+  {}
+  {\titlerule*[0.3pc]{.}\contentspage}
+% Seccion
+\titlecontents{section}
+  [2em]
+  {}
+  {\contentslabel[\thecontentslabel]{0em}}
+  {}
+  {\titlerule*[0.3pc]{.}\contentspage}
+% Figuras
+  \titlecontents{figure}
+  [0em]%
+  {Figura~}
+  {\vspace{-15pt}\thecontentslabel.\hspace{1em}}
+  {}%
+  {\titlerule*[.3pc]{.}\contentspage}%
+% Tablas
+  \titlecontents{table}
+  [0em]%
+  {Tabla~}
+  {\vspace{-15pt}\thecontentslabel.\hspace{1em}}
+  {}%
+  {\titlerule*[.3pc]{.}\contentspage}%
+% Traduccion de titulos
+\addto\captionsspanish{
+    \renewcommand{\contentsname}%
+    {\fontsize{16pt}{1pt}\selectfont CONTENIDO \hfill}%
+    \renewcommand{\listfigurename}%
+    {\fontsize{12pt}{1pt}\selectfont LISTA DE FIGURAS \hfill}%
+    \renewcommand{\listtablename}%
+    {\fontsize{12pt}{1pt}\selectfont LISTA DE TABLAS \hfill}%
+}
+% Numero de pagina a la derecha
+\newpagestyle{main}{\setfoot{}{}{\thepage}}
+\pagestyle{main}
+\assignpagestyle{\chapter}{main}
+
+% Archivos de imagenes y referencias
+\graphicspath{ {imagenes/} }
+\addbibresource{referencias.bib}
+
+\begin{document}
+
+% Se incluye la portada
+\input{contenido/portada}
+
+% Se muestra solamente hasta seccion
+\setcounter{tocdepth}{1}
+% Se imprimen las listas de contenido
+\tableofcontents
+\listoffigures
+\listoftables
+
+\chapter*{RESUMEN}
+\addcontentsline{toc}{chapter}{RESUMEN}
+\input{contenido/resumen}
+
+\chapter*{ABSTRACT}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+\input{contenido/abstract}
+
+\chapter*{INTRODUCCIÓN}
+\addcontentsline{toc}{chapter}{INTRODUCCIÓN}
+\input{contenido/introduccion}
+
+\chapter*{PLANTEAMIENTO DEL PROBLEMA}
+\addcontentsline{toc}{chapter}{PLANTEAMIENTO DEL PROBLEMA}
+\input{contenido/planteamiento}
+
+\chapter*{JUSTIFICACIÓN}
+\addcontentsline{toc}{chapter}{JUSTIFICACIÓN}
+\input{contenido/justificacion}
+
+\chapter*{HIPÓTESIS}
+\addcontentsline{toc}{chapter}{HIPÓTESIS}
+\input{contenido/hipotesis}
+
+\chapter*{OBJETIVOS}
+\addcontentsline{toc}{chapter}{OBJETIVOS}
+\input{contenido/objetivos}
+
+\chapter*{CONTRIBUCIÓN AL CONOCIMIENTO}
+\addcontentsline{toc}{chapter}{CONTRIBUCIÓN AL CONOCIMIENTO}
+\input{contenido/introduccion}
+
+\chapter*{CAPÍTULO 1: ANTECEDENTES}
+\addcontentsline{toc}{chapter}{CAPÍTULO 1: ANTECEDENTES}
+\input{contenido/antecedentes}
+
+\chapter*{CAPÍTULO 2: ESTADO DEL ARTE}
+\addcontentsline{toc}{chapter}{CAPÍTULO 2: ESTADO DEL ARTE}
+\input{contenido/estado}
+
+\chapter*{CAPÍTULO 3: METODOLOGÍA}
+\addcontentsline{toc}{chapter}{CAPÍTULO 3: METODOLOGÍA (NOMBRE OPCIONAL)}
+\input{contenido/metodologia}
+
+\chapter*{CAPÍTULO 4: RESULTADOS Y DISCUSIÓN}
+\addcontentsline{toc}{chapter}{CAPÍTULO 4: RESULTADOS Y DISCUSIÓN}
+\input{contenido/resultados}
+
+\chapter*{CONCLUSIONES}
+\addcontentsline{toc}{chapter}{CONCLUSIONES}
+\input{contenido/conclusiones}
+
+\chapter*{RECOMENDACIONES}
+\addcontentsline{toc}{chapter}{RECOMENDACIONES}
+\input{contenido/recomendaciones}
+
+\chapter*{REFERENCIAS BIBLIOGRÁFICAS}
+\addcontentsline{toc}{chapter}{REFERENCIAS BIBLIOGRÁFICAS}
+\printbibliography[heading=none]
+
+\chapter*{PRODUCTOS ACADÉMICOS}
+\addcontentsline{toc}{chapter}{PRODUCTOS ACADÉMICOS}
+\input{contenido/productos}
+
+\chapter*{ANEXOS}
+\addcontentsline{toc}{chapter}{ANEXOS (OPCIONAL)}
+\input{contenido/anexos}
+
+\end{document}
