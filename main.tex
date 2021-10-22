@@ -1,6 +1,8 @@
-%
 \documentclass[12pt]{report}
-\usepackage{fontspec}
+\usepackage[letterpaper,left=3.0cm,right=3.0cm,top=2.5cm,bottom=2.5cm]{geometry}
+ %\usepackage{fontspec}
+ \usepackage{newtxtext}
+ \usepackage{newtxmath}
 \usepackage[utf8]{inputenc}
 \usepackage[spanish,mexico]{babel}
 \usepackage{csquotes}
@@ -9,20 +11,25 @@
 \usepackage{graphicx}
 \usepackage{ragged2e}
 \usepackage{float}
-\usepackage[linktocpage=true]{hyperref}
 \usepackage[style=apa]{biblatex}
 \usepackage{booktabs}
-\usepackage[letterpaper,left=3.0cm,right=3.0cm,top=2.5cm,bottom=2.5cm]{geometry}
-
+\usepackage[linktocpage=true]{hyperref}
 % Paquetes de prueba
 \usepackage{lipsum}
 
+% Metadata
+\hypersetup{pdfauthor={Nombre},
+            pdftitle={Titulo},
+            pdfsubject={Tesis doctoral},
+            pdfkeywords={latex, doctorado, ito},
+            pdflang={spanish}
+            }
 % Configuracion general
 
 % Espacio entre lineas
 \linespread{1.5}
 % Fuente
-\setmainfont{XITS}
+% \setmainfont{T1}
 % Espacio de parrafo
 \setlength{\parskip}{8pt}
 % Identacion general
@@ -67,8 +74,8 @@
     {\fontsize{16pt}{1pt}\selectfont CONTENIDO \hfill}%
     \renewcommand{\listfigurename}%
     {\fontsize{12pt}{1pt}\selectfont LISTA DE FIGURAS \hfill}%
-    \renewcommand{\listtablename}%
-    {\fontsize{12pt}{1pt}\selectfont LISTA DE TABLAS \hfill}%
+  \renewcommand{\listtablename}%
+  {\fontsize{12pt}{1pt}\selectfont LISTA DE TABLAS \hfill}%
 }
 % Numero de pagina a la derecha
 \newpagestyle{main}{\setfoot{}{}{\thepage}}
@@ -93,59 +100,59 @@
 
 \chapter*{RESUMEN}
 \addcontentsline{toc}{chapter}{RESUMEN}
-\input{contenido/resumen}
+\input{contenido/preambulo/resumen}
 
 \chapter*{ABSTRACT}
 \addcontentsline{toc}{chapter}{ABSTRACT}
-\input{contenido/abstract}
+\input{contenido/preambulo/abstract}
 
 \chapter*{INTRODUCCIÓN}
 \addcontentsline{toc}{chapter}{INTRODUCCIÓN}
-\input{contenido/introduccion}
+\input{contenido/preambulo/introduccion}
 
 \chapter*{PLANTEAMIENTO DEL PROBLEMA}
 \addcontentsline{toc}{chapter}{PLANTEAMIENTO DEL PROBLEMA}
-\input{contenido/planteamiento}
+\input{contenido/preambulo/planteamiento}
 
 \chapter*{JUSTIFICACIÓN}
 \addcontentsline{toc}{chapter}{JUSTIFICACIÓN}
-\input{contenido/justificacion}
+\input{contenido/preambulo/justificacion}
 
 \chapter*{HIPÓTESIS}
 \addcontentsline{toc}{chapter}{HIPÓTESIS}
-\input{contenido/hipotesis}
+\input{contenido/preambulo/hipotesis}
 
 \chapter*{OBJETIVOS}
 \addcontentsline{toc}{chapter}{OBJETIVOS}
-\input{contenido/objetivos}
+\input{contenido/preambulo/objetivos}
 
 \chapter*{CONTRIBUCIÓN AL CONOCIMIENTO}
 \addcontentsline{toc}{chapter}{CONTRIBUCIÓN AL CONOCIMIENTO}
-\input{contenido/introduccion}
+\input{contenido/preambulo/introduccion}
 
 \chapter*{CAPÍTULO 1: ANTECEDENTES}
 \addcontentsline{toc}{chapter}{CAPÍTULO 1: ANTECEDENTES}
-\input{contenido/antecedentes}
+\input{contenido/capitulos/antecedentes}
 
 \chapter*{CAPÍTULO 2: ESTADO DEL ARTE}
 \addcontentsline{toc}{chapter}{CAPÍTULO 2: ESTADO DEL ARTE}
-\input{contenido/estado}
+\input{contenido/capitulos/estado}
 
 \chapter*{CAPÍTULO 3: METODOLOGÍA}
-\addcontentsline{toc}{chapter}{CAPÍTULO 3: METODOLOGÍA (NOMBRE OPCIONAL)}
-\input{contenido/metodologia}
+\addcontentsline{toc}{chapter}{CAPÍTULO 3: METODOLOGÍA}
+\input{contenido/capitulos/metodologia}
 
 \chapter*{CAPÍTULO 4: RESULTADOS Y DISCUSIÓN}
 \addcontentsline{toc}{chapter}{CAPÍTULO 4: RESULTADOS Y DISCUSIÓN}
-\input{contenido/resultados}
+\input{contenido/capitulos/resultados}
 
 \chapter*{CONCLUSIONES}
 \addcontentsline{toc}{chapter}{CONCLUSIONES}
-\input{contenido/conclusiones}
+\input{contenido/epilogo/conclusiones}
 
 \chapter*{RECOMENDACIONES}
 \addcontentsline{toc}{chapter}{RECOMENDACIONES}
-\input{contenido/recomendaciones}
+\input{contenido/epilogo/recomendaciones}
 
 \chapter*{REFERENCIAS BIBLIOGRÁFICAS}
 \addcontentsline{toc}{chapter}{REFERENCIAS BIBLIOGRÁFICAS}
@@ -153,10 +160,10 @@
 
 \chapter*{PRODUCTOS ACADÉMICOS}
 \addcontentsline{toc}{chapter}{PRODUCTOS ACADÉMICOS}
-\input{contenido/productos}
+\input{contenido/epilogo/productos}
 
 \chapter*{ANEXOS}
-\addcontentsline{toc}{chapter}{ANEXOS (OPCIONAL)}
-\input{contenido/anexos}
+\addcontentsline{toc}{chapter}{ANEXOS}
+\input{contenido/epilogo/anexos}
 
 \end{document}
