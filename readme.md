@@ -23,23 +23,24 @@ Para adaptar el formato al usuario, hay que cambiar el nombre del autor, de la t
 
 Esto definirá la información que se mostrará en la portada del documento, las palabras clave a mostrar en secciones subsecuentes y también los metadatos del archivo PDF.
 
-Los metadatos de un PDF son información descriptiva del autor, el título del documento, sus palabras claves, idiomas y tema. Es importante colocarlo ya que asiste a tareas de cienciometría, bibliografía y para actividades de archivo.S
+Los metadatos de un PDF son información descriptiva del autor, el título del documento, sus palabras claves, idiomas y tema. Es importante colocarlo, ya que asiste a tareas de cienciometría, bibliografía y para actividades de archivo.
+
+Para su compilación, el formato requiere versiones modernas de LaTeX, por ejemplo *LuaTeX* o *XeLaTeX*. Este formato fue desarrollado usando el segundo.
 
 ### Como obtener
 
 #### Overleaf
 
-Enlace de [Overleaf](https://www.overleaf.com/).
-
-Descarga de [Formato en Overleaf](https://www.overleaf.com/read/xbyyyvxmvzns/).
+<https://www.overleaf.com/read/xjkgghqzbjpx>
 
 #### Github
+
+<https://github.com/marcodelmoral/Formato-de-tesis-doctoral>
+
 
 ```bash
 git clone https://github.com/marcodelmoral/Formato-de-tesis-doctoral.git
 ```
-
-También se puede descargar directamente en formato ``.zip``.
 
 ### Contenido
 
@@ -81,19 +82,16 @@ El código independientemente de la tabla es igual al de las figuras: se tiene u
 
 ```latex
 \begin{table}[H]
-    \centering
-    \begin{tabular}{@{}llr@{}}
-        \toprule
-        \multicolumn{2}{c}{Item} &                          \\ \cmidrule(r){1*2}
-        Animal                   & Description & Price (\$) \\ \midrule
-        Gnat                     & per gram    & 13.65      \\
-                                 & each        & 0.01       \\
-        Gnu                      & stuffed     & 92.50      \\
-        Emu                      & stuffed     & 33.33      \\
-        Armadillo                & frozen      & 8.99       \\ \bottomrule
-    \end{tabular}
-    \caption{Mi tabla uno}
-    \label{tab:tabla1}
+  \centering
+  \caption{Horizontes y resolución}\label{tab:resolucion}
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    Horizontes   espaciales & Horizontes   temporales \\ \midrule
+    Entidad                 & Anual                   \\
+    Municipio               & Mensual                 \\
+    AGEB                    & Diario                  \\
+    Manzana                 & Por   hora              \\ \bottomrule
+  \end{tabular}
 \end{table}
 ```
 
@@ -128,6 +126,29 @@ Las referencias se toman de un archivo ``.bib`` que contiene una colección estr
   publisher = {Oxford University Press}
 }
 ```
+### Sentencia ``\includeonly``
+
+Esta sentencia permite elegir cuales de los capítulos se compilan en el documento. Esto permite reducir el tiempo de compilación para trabajar de manera más ágil con el documento. Para eliminar capítulo, basta con comentar la línea correspondiente usando el símbolo ``%``; como se muestra a continuación:
+
+```latex
+\includeonly{
+    contenido/preambulo/resumen,
+    contenido/preambulo/abstract,
+    contenido/preambulo/introduccion,
+    contenido/preambulo/planteamiento,
+    contenido/preambulo/justificacion,
+    contenido/preambulo/hipotesis,
+    contenido/preambulo/objetivos,
+    contenido/capitulos/antecedentes,
+    contenido/capitulos/estado,
+    contenido/capitulos/metodologia,
+    contenido/capitulos/resultados,
+    contenido/epilogo/conclusiones,
+    % contenido/epilogo/recomendaciones,
+    % contenido/epilogo/productos,
+    % contenido/epilogo/anexos
+}
+```
 
 #### Mendeley
 
@@ -135,16 +156,20 @@ No es necesario generar el archivo ``.bib`` de manera manual, la aplicación [Me
 
 ## Instalación local
 
+La forma más fácil de trabajar con LaTeX es usando un editor en línea como [Overleaf](https://www.overleaf.com/) o [Papeeria](https://papeeria.com/). La ventaja es que no requiere instalación alguna en el sistema local, permite el acceso al documento desde cualquier parte y guarda los cambios en la nube (No más temor a que la PC/HDD muera y se pierda tu tesis!!!1) y la edición colaborativa del texto entre varias personas. Las desventajas son que no podrás acceder a tu tesis si no tienes internet, las funciones más interesantes y avanzadas están detrás de una subscripción monetaria, y que para la gestión de contenido externo como imágenes se hace más tediosa.
+
 Una instalación local cuenta con las siguientes ventajas:
 
 - No requiere conexión a internet.
-- Es más fácil la gestión de imágenes.
+- Es más fácil la gestión de imágenes y demás contenido.
+- Puedes integrar un control de versiones robusto.
+- En algunos editores puedes instalar editores de estilo, gramaticales y ortográficos.
 
 ### LaTeX
 
 Existen distintas distribuciones de LaTeX para los sistemas operativos. Debido a que la instalación de LaTeX en Linux es bastante trivial, se describirán los pasos para instalar en sistemas operativos Windows.
 
-La distribución a instalar será Texlive, que es robusta y tiene todo lo necesario para trabajar sin requerir configuraciones externas. En Windows, incluye también un intérprete de ``Perl``. El único problema es que pesa bastante ya que contiene todo lo necesario, es por ello que su instalación es bastante tardada.
+La distribución a instalar será Texlive, que es robusta y tiene todo lo necesario para trabajar sin requerir configuraciones externas. En Windows, incluye también un intérprete de ``Perl``. El único problema es que pesa bastante, ya que contiene todo lo necesario, es por ello que su instalación es bastante tardada.
 
 Descarga de [Instalador TexLive](https://mirror.ctan.org/systems/texlive/tlnet/install-tl-windows.exe).
 
@@ -196,13 +221,15 @@ Descarga de [Instalador TexLive](https://mirror.ctan.org/systems/texlive/tlnet/i
   - Extensiones.
   - Otras herramientas.
 
-<sub><sup>Porque los objetivos especificos van en negrita?</sup></sub>
+<sub><sup>¿Por qué los objetivos específicos van en negrita?</sup></sub>
 
 <sub><sup>Hay una R de marca registrada en el logo del ITO </sup></sub>
 
 <!-- ## Visual Studio code
 
-La forma más cómoda de trabajar en LaTeX es usando un procesador profesional de texto
+Configuracion de entorno local de desarrollo.
+
+
 
 Descarga de [Visual Studio Code](https://code.visualstudio.com/download).
 
