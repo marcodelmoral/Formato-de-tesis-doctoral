@@ -13,7 +13,7 @@
 \ProcessOptions\relax
 
 %% Usa como base la clase report
-\LoadClass{report}
+\LoadClass[12pt]{report}
 
 %% *** Paquetes requeridos ***
 \RequirePackage[letterpaper]{geometry}
@@ -75,10 +75,11 @@ within=none,
 \linespread{1.5}
 
 %% Fuente
-\setmainfont{Times New Roman}
+\setmainfont{Times New Roman}[
+]
 
 %% Tamaño de fuente para ecuaciones
-\DeclareMathSizes{10}{12}{9}{7}
+\DeclareMathSizes{12}{14}{12}{10}
 
 %% Espacio de parrafo
 \setlength{\parskip}{8pt}
@@ -337,7 +338,7 @@ within=none,
 
 \end{minipage}%
 \begin{minipage}[t]{.8\textwidth}
-    \fontsize{10}{12}\selectfont \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORIZABA, VERACRUZ, MÉXICO \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \DTMsetdatestyle{estilofecha}  \today
+    \fontsize{10}{12}\selectfont \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORIZABA, VERACRUZ, MÉXICO \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \DTMsetdatestyle{estilofecha}  \today
 \end{minipage}
 
 \end{titlepage}
