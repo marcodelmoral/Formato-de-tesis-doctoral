@@ -18,7 +18,7 @@
 %% *** Paquetes requeridos ***
 \RequirePackage[letterpaper]{geometry}
 \RequirePackage{fontspec}
-\RequirePackage{amsmath,amssymb}
+\RequirePackage{amsmath,amssymb,amsthm}
 \RequirePackage[english,spanish,mexico]{babel}
 \RequirePackage{csquotes}
 \RequirePackage[pagestyles,explicit]{titlesec}
@@ -36,10 +36,10 @@
 \RequirePackage{multirow}
 \RequirePackage[toc]{appendix}
 \RequirePackage{titlesec}
-\RequirePackage{enumitem}
 \RequirePackage{pdflscape}
-\RequirePackage{lettrine}
 \RequirePackage[useregional]{datetime2}
+\RequirePackage[font=bf]{caption}
+\RequirePackage{newfloat}
 
 %% Define metadata pdf
 \AtBeginDocument{%
@@ -60,6 +60,16 @@
 \RequirePackage{hyperref}
 
 %% *** Definicion de estilo del documento doctoral ***
+
+%% Define float para ecuaciones
+
+\DeclareFloatingEnvironment[
+fileext=loe,
+listname={\fontsize{12pt}{1pt}\selectfont LISTA DE ECUACIONES \hfill},
+name=Ecuación,
+within=none,
+]{eq}
+
 
 %% Espacio entre lineas
 \linespread{1.5}
@@ -162,10 +172,22 @@
   {}%
   {\titlerule*[.3pc]{.}\contentspage}%
 
+%% Ecuaciones
+  \titlecontents{eq}
+  [0em]%
+  {Ecuación~}
+  {\vspace{-10pt}\thecontentslabel.\hspace{1em}}
+  {}%
+  {\titlerule*[.3pc]{.}\contentspage}%
+
 %% Apendices
   \g@addto@macro\appendices{%
     \addtocontents{toc}{\protect\renewcommand{\protect\@chapapp}{\appendixname}}%
   }
+
+%% Enumeracion consecutiva de tablas y figuras
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
 
 %% Define estilo de fecha para portada
 \DTMnewdatestyle{estilofecha}{%

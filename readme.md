@@ -98,6 +98,19 @@ El código independientemente de la tabla es igual al de las figuras: se tiene u
 Para facilitar el proceso de creación de tablas, se deja el enlace de un
 sitio para crear tablas de latex [Tablas en latex](https://www.tablesgenerator.com/latex_tables/). En el cual se pueden cargar tablas de excel, copiar y pegar y genera el código de manera fácil y sencilla.
 
+### Ecuaciones
+
+Para las ecuaciones se definió un entorno para flotantes llamado ``eq``. El cual define la ecuación, etiqueta y referencia.
+
+```latex
+\begin{eq}[H]
+ \caption{Mi ecuación}\label{eq:ecuacion1}
+ \[
+    1 + 1 = 2
+ \]
+\end{eq}
+```
+
 ### Secciones
 
 Se utilizan los comandos ``\section{Nombre}``, ``\subsection{Nombre}``, ``\subsection{Nombre}`` para colocar secciones anidadas. Estas se colocan automáticamente en la tabla de contenido.
@@ -125,6 +138,17 @@ Las referencias se toman de un archivo ``.bib`` que contiene una colección estr
   year      = {1984},
   publisher = {Oxford University Press}
 }
+```
+
+### Tabla de contenidos y listas
+
+Los siguientes comandos sirven para imprimir la tabla de contenidos y las listas de figuras, tablas y ecuaciones.
+
+```latex
+\tableofcontents
+\listoffigures
+\listoftables
+\listofeqs
 ```
 ### Sentencia ``\includeonly``
 
@@ -211,6 +235,8 @@ Descarga de [Instalador TexLive](https://mirror.ctan.org/systems/texlive/tlnet/i
 - Nomenclaturas y abreviaciones.
 - Bibliografía al final.
 - Una sola página o lado y lado.
+- Formato de los anexos y su numeración.
+- Formato de las etiquetas para flotantes.
 
 #### TODO
 
@@ -247,7 +273,23 @@ Descarga de [Visual Studio Code](https://code.visualstudio.com/download).
 
 ### Github
 
+### Git Latexdiff
+
+### package todonotes
+
+### pgfplotstable y pgfplots
+
+### Tasks en vscode
+
+### Custom keybinds: invert pdf, synctex, etc.
+
+### Analisis de datos con jupyter
+
+### Tablas con pandas
+
 ### Gitlens -->
+
+
 
 ## Contacto
 

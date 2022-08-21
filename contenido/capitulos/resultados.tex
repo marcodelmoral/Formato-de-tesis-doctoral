@@ -1,10 +1,23 @@
 \chapter{RESULTADOS}
 
-\lipsum[1-1] \cite{texbook}
+\lipsum[1-1] \parencite{texbook}
+
+En la \autoref{fig:fig1} podemos observar un ejemplo de figura.
 
 \begin{figure}[H]
-    \centering
-    \includegraphics[width=\textwidth,height=0.5\textwidth]{overleaf}
-    \caption{Mi figura dos}\label{fig:fig2}
+	\centering
+	\includegraphics[width=\textwidth,height=0.5\textwidth]{overleaf}
+	\caption{Mi figura}\label{fig:fig1}
 \end{figure}
 
+En la \autoref{eq:ecuacion1} podemos observar un ejemplo de ecuación.
+
+\begin{eq}[H]
+	\caption{Mi ecuación}\label{eq:ecuacion1}
+	\[
+		\mathcal L_{\mathcal T}(\vec{\lambda})
+		= \sum_{(\mathbf{x},\mathbf{s})\in \mathcal T}
+		\log P(\mathbf{s}\mid\mathbf{x}) - \sum_{i=1}^m
+		\frac{\lambda_i^2}{2\sigma^2}
+	\]
+\end{eq}
