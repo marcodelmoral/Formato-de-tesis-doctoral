@@ -77,6 +77,9 @@ within=none,
 %% Fuente
 \setmainfont{Times New Roman}
 
+%% Tamaño de fuente para ecuaciones
+\DeclareMathSizes{10}{12}{9}{7}
+
 %% Espacio de parrafo
 \setlength{\parskip}{8pt}
 
@@ -341,3 +344,13 @@ within=none,
 
 }
 
+\makeatletter
+
+% \patchcmd{\@setref}{\bfseries??}{\colorbox{red!30}{\detokenize{#3}}}{}{}
+
+\ifdefined\HyRef@autosetref\patchcmd{\HyRef@autosetref}
+      {\else}{\else\colorbox{red!30}{\detokenize{#2}}}{}{}\fi
+
+\def\abx@missing#1{\colorbox{red!30}{\detokenize{#1}}}
+
+\makeatother
