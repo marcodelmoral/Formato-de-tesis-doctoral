@@ -347,8 +347,6 @@ Descarga de [Visual Studio Code](https://code.visualstudio.com/download).
 
 #### Latex workshop
 
-#### Code spellcheck
-
 #### TODO tree
 
 ## Control de versiones
@@ -360,6 +358,10 @@ Descarga de [Visual Studio Code](https://code.visualstudio.com/download).
 ### Git Latexdiff
 
 ### package todonotes
+
+### package longtable
+
+### ltex y languagetool
 
 ### pgfplotstable y pgfplots
 
