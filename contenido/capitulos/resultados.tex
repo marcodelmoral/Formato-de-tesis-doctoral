@@ -1,16 +1,16 @@
 \chapter{RESULTADOS}
 
-\lipsum[1-1] \parencite{texbook}
+\lipsum[1-1]\autocite{texbook,latex:companion}.
 
-En la \autoref{fig:fig1} podemos observar un ejemplo de figura.
+En la \vref{fig:fig2} podemos observar un ejemplo de figura.
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=\textwidth,height=0.3\textwidth]{overleaf}
-	\caption{Mi figura}\label{fig:fig1}
+	\caption{Mi figura}\label{fig:fig2}
 \end{figure}
 
-En la \autoref{eq:ecuacion1} podemos observar un ejemplo de ecuación.
+En la \vref{eq:ecuacion1} podemos observar un ejemplo de ecuación.
 
 \begin{eq}[H]
 	\caption{Mi ecuación}\label{eq:ecuacion1}
@@ -22,4 +22,14 @@ En la \autoref{eq:ecuacion1} podemos observar un ejemplo de ecuación.
 	\]
 \end{eq}
 
+% Ejemplo de una Figura en otra página se puede ver en la \vref{fig:fig3}
+
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=\textwidth,height=0.5\textwidth]{example-image}
+% 	\caption{Figura en otra página}\label{fig:fig3}
+% \end{figure}
+
 Este es un ejemplo de matemática dentro de línea \(x^2 + y^2 = z^2\).
+
+% Este es el ejemplo de una cita múltiple \autocite{texbook,latex:companion}.

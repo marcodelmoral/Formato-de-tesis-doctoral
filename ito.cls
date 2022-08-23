@@ -16,8 +16,17 @@
 \LoadClass[12pt]{report}
 
 %% *** Paquetes requeridos ***
+\RequirePackage[T1]{fontenc}
+\RequirePackage[utf8]{inputenc}
 \RequirePackage[letterpaper]{geometry}
-\RequirePackage{fontspec}
+\RequirePackage{mathptmx}
+\RequirePackage[
+    protrusion=true,
+    activate={true,nocompatibility},
+    tracking=true,
+    kerning=true,
+    spacing=nonfrench,
+    factor=1100]{microtype}
 \RequirePackage{amsmath,amssymb,amsthm}
 \RequirePackage[english,spanish,mexico]{babel}
 \RequirePackage{csquotes}
@@ -25,17 +34,14 @@
 \RequirePackage{titletoc}
 \RequirePackage{graphicx}
 \RequirePackage[table,xcdraw,dvipsnames]{xcolor}
-\RequirePackage{ragged2e}
 \RequirePackage{float}
-\RequirePackage[style=apa]{biblatex}
+\RequirePackage[style=apa,backend=biber]{biblatex}
 \RequirePackage{booktabs}
-\RequirePackage{microtype}
 \RequirePackage{csquotes}
 \RequirePackage{subfig}
 \RequirePackage{enumitem}
 \RequirePackage{multirow}
 \RequirePackage[toc]{appendix}
-\RequirePackage{titlesec}
 \RequirePackage{pdflscape}
 \RequirePackage[useregional]{datetime2}
 \RequirePackage[font=bf]{caption}
@@ -70,13 +76,12 @@ name=Ecuación,
 within=none,
 ]{eq}
 
-
 %% Espacio entre lineas
 \linespread{1.5}
 
 %% Fuente
-\setmainfont{Times New Roman}[
-]
+% \setmainfont{Times New Roman}[
+% ]
 
 %% Tamaño de fuente para ecuaciones
 \DeclareMathSizes{12}{14}{12}{10}
@@ -232,6 +237,12 @@ within=none,
 \setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
 
+%% Remover espacio entre flotantes en distintos capitulos
+\newcommand*{\noaddvspace}{\renewcommand*{\addvspace}[1]{}}
+\addtocontents{lof}{\protect\noaddvspace}
+\addtocontents{lot}{\protect\noaddvspace}
+\addtocontents{loeq}{\protect\noaddvspace}
+
 % \directlua{pdf.setminorversion(7)}
 % \pdfminorversion=7%
 % \pdfcompresslevel=0%
@@ -249,6 +260,8 @@ within=none,
 }
 \newcommand*{\autor}[1]{\gdef\@autor{#1}%
 }
+\newcommand*{\fecha}[1]{\gdef\@fecha{#1}%
+}
 \newcommand*{\keywords}[1]{\gdef\@keywords{#1}%
 }
 \newcommand*{\palabras}[1]{\gdef\@palabras{#1}%
@@ -257,7 +270,9 @@ within=none,
 \newcommand*{\@director}{}
 \newcommand*{\@codirector}{}
 \newcommand*{\@autor}{}
+\newcommand*{\@fecha}{\today}
 \newcommand*{\@keywords}{}
+\newcommand*{\@palabras}{}
 
 %% *** Definicion de portada ***
 \renewcommand*{\maketitle}{%
@@ -338,7 +353,7 @@ within=none,
 
 \end{minipage}%
 \begin{minipage}[t]{.8\textwidth}
-    \fontsize{10}{12}\selectfont \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORIZABA, VERACRUZ, MÉXICO \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \DTMsetdatestyle{estilofecha}  \today
+    \fontsize{10}{12}\selectfont \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ORIZABA, VERACRUZ, MÉXICO \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \DTMsetdatestyle{estilofecha}  \@fecha
 \end{minipage}
 
 \end{titlepage}
@@ -347,7 +362,7 @@ within=none,
 
 \makeatletter
 
-% \patchcmd{\@setref}{\bfseries??}{\colorbox{red!30}{\detokenize{#3}}}{}{}
+\patchcmd{\@setref}{\bfseries??}{\colorbox{red!30}{\detokenize{#3}}}{}{}
 
 \ifdefined\HyRef@autosetref\patchcmd{\HyRef@autosetref}
       {\else}{\else\colorbox{red!30}{\detokenize{#2}}}{}{}\fi
